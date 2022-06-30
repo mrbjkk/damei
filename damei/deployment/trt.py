@@ -1,4 +1,6 @@
-import os, sys
+from general import xywh2xyxy, non_max_suppression
+import os
+import sys
 import ctypes
 import numpy as np
 import torch
@@ -9,10 +11,11 @@ import tensorrt as trt
 from pathlib import Path
 pydir = Path(os.path.abspath(__file__)).parent
 sys.path.append(f'{pydir.parent}/functions')
-from general import xywh2xyxy, non_max_suppression
 
 CONF_THRESH = 0.1
 IOU_THRESHOLD = 0.4
+TRT_LOGGER = trt.Logger(trt.Logger.INFO)
+
 
 class trt_wrapper(object):
     '''
@@ -23,8 +26,8 @@ class trt_wrapper(object):
         self.ori_imgsize = ori_imgsize
         self.cfx = cuda.Device(0).make_context()
         stream = cuda.Stream()
-        TRT_LOGGER = trt.Logger(trt.Logger.INFO)
         runtime = trt.Runtime(TRT_LOGGER)
+        assert runtime, f'failed to initilize runtime, {runtime}'
 
         ctypes.CDLL(plugins_path)
         # 反序列化
@@ -166,7 +169,6 @@ class trt_wrapper(object):
         boxes = xywh2xyxy(boxes, need_scale=True,
                           im0=np.zeros(self.ori_imgsize))
         # Do nms
-        # indices = torchvision.ops.nms(boxes, scores, iou_threshold=IOU_THRESHOLD).cpu()
         indices = non_max_suppression(boxes, scores, IOU_THRESHOLD)
         result_boxes = boxes[indices, :].cpu()
         result_scores = scores[indices].cpu()
