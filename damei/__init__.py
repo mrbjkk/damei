@@ -6,8 +6,10 @@ from damei import version
 
 __version__ = version.__version__
 __author__ = version.__author__
+DATA_ROOT = version.DATA_ROOT
 
 # dmsystem
+from damei.utils.exception import exception_handler as EXCEPTION
 from damei.dmsystem.system import current_system, system_lib_suffix
 
 # controls
@@ -30,14 +32,16 @@ from damei.tools.tools import Tools
 
 # from damei.tools.tools import video2frames
 tools = Tools()
-from damei.tools.ffmpeg import DmFFMPEG
+# from damei.tools.ffmpeg import DmFFMPEG
 
-ffmpeg = DmFFMPEG()
+# ffmpeg = DmFFMPEG()
 
 from damei.tools.check_yolo import CheckYOLO
 
 # misc
-from damei.misc import misc
+# from damei.misc import misc
+import damei.misc as misc
+
 from damei.misc.logger import getLogger, get_logger
 from damei.misc.time import current_time, plus_time, within_time
 from damei.misc.dm_rsa import DmRsa
@@ -50,3 +54,8 @@ from damei.misc.scrcpy.scrcpy import Scrcpy
 # nn
 import damei.nn as nn
 from damei.nn.api.utils import Config
+
+# demo_for_dm.data
+import damei.data as data
+
+import damei.ffmpeg as ffmpeg

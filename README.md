@@ -4,7 +4,8 @@ https://github.com/zhangzhengde0225/damei)
 https://github.com/zhangzhengde0225/damei/issues)
 [![Source_codes](https://img.shields.io/static/v1?label=Download&message=src&color=orange)](
 https://github.com/zhangzhengde0225/damei/archive/refs/heads/master.zip)
-
+[![Source_codes](https://img.shields.io/static/v1?label=Docs&message=Available&color=orange)](
+http://47.114.37.111)
 # damei
 
 damei(大妹) library。
@@ -21,7 +22,7 @@ pypi安装:
 pip install damei  
 ```
 
-源码安装：[Download](https://github.com/zhangzhengde0225/damei/archive/refs/heads/master.zip).
+或从源码安装：[Download](https://github.com/zhangzhengde0225/damei/archive/refs/heads/master.zip).
 
 ```
 unzip damei-master.zip
@@ -35,10 +36,11 @@ python setup.py install
 import damei as dm
 ```
 
-使用示例查看[usage.md](https://github.com/zhangzhengde0225/damei/blob/master/docs/usage.md)
-文件
+[//]: # (### 使用示例[usage.md]&#40;https://github.com/zhangzhengde0225/damei/blob/master/docs/usage.md&#41;.)
 
-# 3.Features
+### 详细文档请查阅[damei_doc](http://47.114.37.111).
+
+# 3.更新日志
 
 ```python
 """
@@ -82,9 +84,8 @@ import damei as dm
             uaii = dm.nn.api.UAII()
          v1.1.1 # 新增dm.argparse，只读取默认值，不解析命令行参数
             parser = dm.argparse.ArgumentParser()
-
-# TODO v1.2.0版本起，damei不仅支持库使用，还作为一个应用程序使用，命令行输入dm [命令] [选项] [参数]
-# TODO v1.3.0版本起，damei提供高效波函数求解器wavelib。
+20220610 v1.1.7 # damei_doc上线
+20220621 v1.1.8 # damei.ffmpeg.push_stream()  提供API文档
 """
 ```
 
