@@ -22,7 +22,8 @@ pypi安装:
 pip install damei  
 ```
 
-或从源码安装：[Download](https://github.com/zhangzhengde0225/damei/archive/refs/heads/master.zip).
+[//]: # (或从源码安装：[Download]&#40;https://github.com/zhangzhengde0225/damei/archive/refs/heads/master.zip&#41;.)
+下载源码后：
 
 ```
 unzip damei-master.zip
@@ -32,13 +33,13 @@ python setup.py install
 
 # 2.使用
 
+## [详细API文档](http://47.114.37.111)
+
 ```python
 import damei as dm
 ```
 
 [//]: # (### 使用示例[usage.md]&#40;https://github.com/zhangzhengde0225/damei/blob/master/docs/usage.md&#41;.)
-
-### 详细文档请查阅[damei_doc](http://47.114.37.111).
 
 # 3.更新日志
 
@@ -73,7 +74,7 @@ import damei as dm
 20220309 v1.0.163 cfg = dm.PyConfig(cfg_file)
                     print(cfg.info())  # 查看配置
                     cfg.merge(cfg2)  # 合并配置      
-20220322 v1.0.164 dm.ffmpeg.push_stream(  # 把视频推成流
+20220322 v1.0.164 dm.comm.push_stream(  # 把视频推成流
                 source, ip='127.0.0.1', port=1935, stream_type='rtmp', key=None))
 20220323 v1.0.165 dmpeg = dm.DmFFMPEG()  # 传入一堆参数
                     for img in imgs:  # 循环中推流
@@ -85,7 +86,7 @@ import damei as dm
          v1.1.1 # 新增dm.argparse，只读取默认值，不解析命令行参数
             parser = dm.argparse.ArgumentParser()
 20220610 v1.1.7 # damei_doc上线
-20220621 v1.1.8 # damei.ffmpeg.push_stream()  提供API文档
+20220621 v1.1.8 # damei.comm.push_stream()  提供API文档
 """
 ```
 
